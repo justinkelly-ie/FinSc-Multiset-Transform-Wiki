@@ -1,6 +1,6 @@
 # 📐 Maxel & Vexel Homomorphic Observation & Matrix Algebra Specification
 
-Documents and verifies matrix transformations ($Maxel$) acting as **Linear Vector Homomorphisms** over multiset vectors ($Vexel$), Grassmann wedge nilpotency ($v \wedge v = 0$), monomorphic 2D matrix multiplication (`multBoxMatrix2D`, `traceBoxMatrix2D`), and Galois sub-lattice subsumption using QuickCheck property testing.
+Documents and verifies matrix transformations ($Maxel$) acting as **Linear Vector Homomorphisms** over multiset vectors ($Vexel$), Grassmann wedge nilpotency ($v \wedge v = 0$), monomorphic 2D matrix multiplication (`multBoxMatrix2D`, `traceBoxMatrix2D`), and Multiset Adjunction sub-lattice subsumption using QuickCheck property testing.
 
 ## 1. Mathematical Foundation & Vector Homomorphisms
 
@@ -14,11 +14,11 @@ Under Sandy Maguire's Homomorphic Observation framework, matrix-vector actions `
 ```idris
 module Wiki.MaxelAlgebraSpec
 
-import Core.BoxInt
-import Core.Multiset
-import Core.VexelMaxel
-import Core.MaxelTransform
-import Math.LawAlgebra
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage1.VexelMaxel
+import Stage1.MaxelTransform
+import Stage1.Math.LawAlgebra
 import Wiki.Generators
 
 %default total
@@ -48,10 +48,10 @@ prop_wedgeNilpotent v =
   let w = wedgeVexel v v
   in w == MkMaxel []
 
-||| 4. Galois Connection Sub-Lattice Subsumption: M <= f^*(f_*(M))
+||| 4. Multiset Scale Adjunction Sub-Lattice Subsumption: M <= f^*(f_*(M))
 public export
-prop_galoisSubsumption : Maxel -> Bool
-prop_galoisSubsumption m =
+prop_multisetSubsumption : Maxel -> Bool
+prop_multisetSubsumption m =
   let mCan = canonicalizeMaxel m
   in mCan == mCan
 
@@ -77,7 +77,7 @@ auditMaxelAlgebraProof = do
   let r1 = qc3 prop_actMaxelDistributive
   let r2 = qc3 prop_actMaxelScalarLinear
   let r3 = qc prop_wedgeNilpotent
-  let r4 = qc prop_galoisSubsumption
+  let r4 = qc prop_multisetSubsumption
   let r5 = qc3 prop_actTransformVexelDistributive
   let r6 = qc3 prop_maxelTransformRoundtrip
   pure (r1.pass == Just True && r2.pass == Just True && r3.pass == Just True && r4.pass == Just True &&

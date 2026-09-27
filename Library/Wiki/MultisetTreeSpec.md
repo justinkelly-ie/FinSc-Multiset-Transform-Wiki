@@ -3,9 +3,9 @@
 ```idris
 module Wiki.MultisetTreeSpec
 
-import Core.BoxInt
-import Core.Multiset
-import Core.MultisetTree
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage1.MultisetTree
 import Wiki.Generators
 
 %default total

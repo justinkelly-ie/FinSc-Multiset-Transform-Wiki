@@ -3,7 +3,7 @@ version = 0.1.0
 authors = "Justin Kelly"
 brief   = "Literate verification suite for Layer 1 Multiset data structures."
 
-depends = FinSc-Multiset-Core, FinSc-Multiset-Transform, FinSc-Dihedron, FinSc-Cosmos, base, idris2-QuickCheck, linear
+depends = FinSc-Multiset-Core, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.Foundations.Multiset_Tree_Architecture,
@@ -14,6 +14,10 @@ modules = Wiki.Foundations.Multiset_Tree_Architecture,
           Wiki.ScaleAdjunctionTransformSpec,
           Wiki.StatefulLawSpec,
           Wiki.StreamAdjunctionSpec,
+          Wiki.TwelveLevelTypeTheoryStagingSpec,
+          Wiki.QuadStreamPassbandSpec,
+          Wiki.CosmicEpochSubstrateSpec,
+          Wiki.QuadStreamGohAdjunctionSpec,
           Wiki.UnixelFractionSpec
 
 main = Wiki.Main

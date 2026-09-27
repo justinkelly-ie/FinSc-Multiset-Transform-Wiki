@@ -1,6 +1,6 @@
-# 🗃️ Multiset Tree Architecture & Galois Law Algebra
+# 🗃️ Multiset Tree Architecture & Multiset Law Algebra
 
-**Formal Specification of $O(\log N)$ Multiset Search Trees, Reflected Polynumbers, UnixelFractions, and Galois Connections ($f_* \dashv f^*$).**
+**Formal Specification of $O(\log N)$ Multiset Search Trees, Reflected Polynumbers, UnixelFractions, and Multiset Adjunctions ($L \dashv R$).**
 
 ---
 
@@ -14,7 +14,7 @@
    Nested monomial terms $c \cdot x^k$, Goh factorization, cyclotomic division ($\Phi_{137}$), and Wildberger Multiple-Spread recurrence polynomials $S_n(s)$.
 3. **Rational UnixelFractions (`UnixelFraction`)**:
    Exact rational numbers $Q = N / [D]$ with cross-multiplication equivalence (`rationalEquiv`), continued fraction convergents, and Stern-Brocot pathfinding.
-4. **Pure Algebraic Galois Connection ($f_* \dashv f^*$)**:
+4. **Pure Algebraic Multiset Adjunction ($L \dashv R$)**:
    Adjunction between multiset pushforward ($f_*$) and pullback ($f^*$) over finite microstate lattices.
 
 ---
@@ -28,4 +28,4 @@
 | [`Core.Polynumber`](../../FinSc-Multiset2/src/Core/Polynumber.idr) | Polynumber Cauchy product, cyclotomic division, and Caret operation ($\wedge$). |
 | [`Core.UnixelFraction`](../../FinSc-Multiset2/src/Core/UnixelFraction.idr) | Rational `UnixelFraction`, Stern-Brocot pathfinding, and Hehner scale conversions. |
 | [`Core.VexelMaxel`](../../FinSc-Multiset2/src/Core/VexelMaxel.idr) | Multiset tensor hierarchy (`Unixel`, `Pixel`, `Voxel`, `Vexel`, `Maxel`, `Boxel`, `HyperBoxel`). |
-| [`Math.LawAlgebra`](../../FinSc-Multiset2/src/Math/LawAlgebra.idr) | Monoid $(\wedge, \otimes)$, multiset pushforward ($f_*$), pullback ($f^*$), and Galois Connections. |
+| [`Math.LawAlgebra`](../../FinSc-Multiset2/src/Math/LawAlgebra.idr) | Monoid $(\wedge, \otimes)$, multiset pushforward ($f_*$), pullback ($f^*$), and Multiset Adjunctions. |

@@ -4,11 +4,12 @@
 module Wiki.StatefulLawSpec
 
 import Data.Vect
-import Core.BoxInt
-import Core.Multiset
-import Core.UniverseState
-import Math.LawAlgebra
-import Math.OnSeq.FusedStream
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage0.UniverseState
+import Stage1.StratifiedState
+import Stage1.Math.LawAlgebra
+import Stage0.OnSeq.FusedStream
 import Data.Fuel
 import Wiki.Generators
 

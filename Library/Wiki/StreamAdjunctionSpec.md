@@ -14,11 +14,17 @@ Documents and verifies the **Adjoint Functor** $(FreeWave \dashv ForgetfulMonoid
 ```idris
 module Wiki.StreamAdjunctionSpec
 
-import Math.OnSeq.FusedStream
-import Math.OnSeq.SpreadStream
-import Math.Multiset
-import Core.TypeTheory.TwoLevel
-import Core.ScalePipeline.StreamAdjunction
+import Stage0.OnSeq.FusedStream
+import Stage1.Math.OnSeq.SpreadStream
+import Stage0.Multiset
+import Stage1.TypeTheory.TwoLevel
+import Stage0.ScalePipeline.StreamAdjunction
+import Stage1.Goh
+import Stage1.TypeTheory.MultisetLevel
+import Stage1.Math.Transform.Reflect.Goh
+import Stage1.MaxelTransform
+import Stage1.ScalePipeline
+import Stage1.Multiset.StreamTransducer
 import Wiki.Generators
 import Data.Fuel
 
@@ -123,6 +129,28 @@ public export
 prop_wildbergerSupportPartitionProof : Bool
 prop_wildbergerSupportPartitionProof = auditWildbergerSupportPartitionProof
 
+||| Property 11: Chromogeometric Sector Budget Conservation (b + r + g == N)
+public export
+prop_chromogeometricBudgetConservationProof : Bool
+prop_chromogeometricBudgetConservationProof =
+  prop_chromogeometricBudgetConservation 6 &&
+  prop_chromogeometricBudgetConservation 12 &&
+  prop_chromogeometricBudgetConservation 18
+
+||| Property 12: 4Geometries Stage-Indexed Metric Router Dispatch & Prime Adjunction Stream Transducer Audit
+public export
+prop_stageGeometryMetricRouterProof : Bool
+prop_stageGeometryMetricRouterProof =
+  let g18 = buildGohFactorization 18
+      g210 = buildGohFactorization 210
+      chain210 = buildGohPrimeAdjunctionChain 210
+      quotedGoh = quoteGohMultiset {n=0} g18
+      autoRouted = autoRouteTransformSector quotedGoh t1_QuarkToHadron
+      pushedStream = primeAdjunctionStreamTransducer chain210 g210
+  in prop_primorial210UnfoldingInvariance &&
+     (autoRouted.sector == EllipticSector) &&
+     (countFactors pushedStream == 15)
+
 ||| Direct Suite Execution for Stream Adjunction Specification
 public export covering
 auditStreamAdjunctionProof : IO Bool
@@ -137,5 +165,7 @@ auditStreamAdjunctionProof = do
   let p8 = prop_spreadStreamProof
   let p9 = prop_totientSumProof
   let p10 = prop_wildbergerSupportPartitionProof
-  pure (p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8 && p9 && p10)
+  let p11 = prop_chromogeometricBudgetConservationProof
+  let p12 = prop_stageGeometryMetricRouterProof
+  pure (p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8 && p9 && p10 && p11 && p12)
 ```

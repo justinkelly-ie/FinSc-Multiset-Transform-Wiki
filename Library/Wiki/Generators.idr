@@ -3,14 +3,14 @@ module Wiki.Generators
 import public QuickCheck
 import Data.List
 import Data.Nat
-import Core.BoxInt
-import Core.Multiset
-import Core.VexelMaxel
-import Core.UnixelFraction
-import Core.MultisetTree
-import Core.UniverseState
-import Core.MaxelTransform
-import Math.LawAlgebra
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage1.VexelMaxel
+import Stage1.UnixelFraction
+import Stage1.MultisetTree
+import Stage0.UniverseState
+import Stage1.MaxelTransform
+import Stage1.Math.LawAlgebra
 
 %default total
 

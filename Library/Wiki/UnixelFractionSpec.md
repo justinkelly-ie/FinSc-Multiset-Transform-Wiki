@@ -14,10 +14,10 @@ Documents and verifies exact rational observable arithmetic $Q = N / [D]$ (`Unix
 ```idris
 module Wiki.UnixelFractionSpec
 
-import Core.BoxInt
-import Core.Multiset
-import Core.VexelMaxel
-import Core.UnixelFraction
+import Stage0.BoxInt
+import Stage0.Multiset
+import Stage1.VexelMaxel
+import Stage1.UnixelFraction
 import Wiki.Generators
 
 %default total
