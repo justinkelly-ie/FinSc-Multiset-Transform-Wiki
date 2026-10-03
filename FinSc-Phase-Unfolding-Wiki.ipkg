@@ -1,9 +1,9 @@
-package FinSc-Multiset-Transform-Wiki
+package FinSc-Phase-Unfolding-Wiki
 version = 0.1.0
 authors = "Justin Kelly"
-brief   = "Literate verification suite for Layer 1 Multiset data structures."
+brief   = "Literate verification suite for Layer 1 Primordial Phase Unfolding."
 
-depends = FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
+depends = FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Phase-Unfolding, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.Foundations.Multiset_Tree_Architecture,
@@ -21,4 +21,4 @@ modules = Wiki.Foundations.Multiset_Tree_Architecture,
           Wiki.UnixelFractionSpec
 
 main = Wiki.Main
-executable = multiset-transform-wiki
+executable = phase-unfolding-wiki
