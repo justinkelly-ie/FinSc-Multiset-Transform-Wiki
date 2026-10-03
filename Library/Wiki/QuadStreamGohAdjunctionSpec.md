@@ -29,7 +29,7 @@ import Stage0.Multiset
 import Stage1.QuadStream
 import Stage1.Goh
 import Stage1.Math.Transform.Reflect.Goh
-import Stage1.Math.Transform.QuadStreamAdjunction
+import Stage1.Math.Transform.QuadStreamDuality
 import Wiki.Generators
 import Data.Vect
 

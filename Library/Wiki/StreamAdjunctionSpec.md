@@ -18,7 +18,7 @@ import Stage0.OnSeq.FusedStream
 import Stage1.Math.OnSeq.SpreadStream
 import Stage0.Multiset
 import Stage1.TypeTheory.TwoLevel
-import Stage0.ScalePipeline.StreamAdjunction
+import Stage1.ScalePipeline.StreamDuality
 import Stage1.Goh
 import Stage1.TypeTheory.MultisetLevel
 import Stage1.Math.Transform.Reflect.Goh

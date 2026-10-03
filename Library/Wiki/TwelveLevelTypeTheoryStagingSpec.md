@@ -37,6 +37,7 @@ module Wiki.TwelveLevelTypeTheoryStagingSpec
 import Stage0.BoxInt
 import Stage0.Multiset
 import Stage0.UniverseState
+import Stage1.Smooth13UniverseState
 import Stage1.Goh
 import Stage1.UnixelFraction
 import Stage1.VexelMaxel

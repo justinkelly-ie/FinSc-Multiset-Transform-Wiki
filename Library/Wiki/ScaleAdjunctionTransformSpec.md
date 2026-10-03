@@ -22,7 +22,7 @@ Documents and verifies the formal relations between physical scale transformatio
 module Wiki.ScaleAdjunctionTransformSpec
 
 import Stage0.BoxInt
-import Stage1.ScaleCategory
+import Stage1.ScaleHierarchy
 import Stage1.MaxelTransform
 import Stage0.Multiset
 import Stage0.BoxInt
