@@ -5,6 +5,7 @@ import Stage1.Polynumber
 import Stage1.UnixelFraction
 import Stage1.VexelMaxel
 import Stage1.Math.LawAlgebra
+import Stage1.MaxelPolyBridge
 import System
 import Wiki.StreamAdjunctionSpec
 import Wiki.MaxelAlgebraSpec
@@ -78,13 +79,18 @@ main = do
   printTestResult "Multiset Born Rule & Hehner Bit Bag" auditMultisetHehnerTriadProof
   printTestResult "Multiset Compactness & Jaccard Overlap" auditMultisetCompactnessRatioProof
   printTestResult "Law Algebra Monoid & Multiset Adjunction" auditLawAlgebraMonoidProof
+  printTestResult "Companion Maxel Support & Characteristic Polynomial" auditCompanionSupportProof
+  printTestResult "Wildberger Spread Dynamic Support Pruning" auditSpreadSupportPruningProof
+  printTestResult "Wildberger Orthogonal Spread 2-Cycle Oscillation Invariance" auditSpreadOrthogonalOscillationProof
 
   let allQc = p0 && p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8 && p9
   let allAudits = auditMultisetTreeLookupProof && auditMultisetTreeTokenSumProof &&
                   auditBoxSpecTreeOrderingProof && auditTreeUniverseScalingProof &&
                   auditContinuedFractionProof && auditSternBrocotProof &&
                   auditHehnerScaleConversionProof && auditMultisetHehnerTriadProof &&
-                  auditMultisetCompactnessRatioProof && auditLawAlgebraMonoidProof
+                  auditMultisetCompactnessRatioProof && auditLawAlgebraMonoidProof &&
+                  auditCompanionSupportProof && auditSpreadSupportPruningProof &&
+                  auditSpreadOrthogonalOscillationProof
 
 
   putStrLn "========================================================"
