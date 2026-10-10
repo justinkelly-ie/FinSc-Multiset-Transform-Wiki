@@ -35,6 +35,7 @@ import Stage1.Math.Transform.MultisetFilter
 import Stage1.Math.Transform.ChromogeometryMetric
 import Stage0.OnSeq.FusedStream
 import Stage1.OnSeq
+import Stage1.Multiset.PrimordialUnfolding
 import Wiki.Generators
 import Data.Fuel
 import Data.Vect
@@ -78,12 +79,20 @@ prop_quadranceTriadCoherence =
      (triad.parabolicQuadrance == intToBoxInt 5) && -- 1 + 4 = 5
      (triad.substrateMetricSum == intToBoxInt 55)
 
+||| Property 4 (Generative QuickCheck): Dynamic Pythagorean Triad Across Arbitrary Epochs
+public export
+prop_dynamicEpochTriadGen : Nat -> Bool
+prop_dynamicEpochTriadGen k =
+  auditDynamicEpochTriadIdentityProof k
+
 ||| Main Verification Suite for Multi-Epoch Substrate Law Re-hydration & Chromogeometry
 public export
 auditCosmicEpochSubstrateProof : IO Bool
 auditCosmicEpochSubstrateProof = do
   let r1 = qc prop_multiEpochCollapseRehydrationGen
   let r2 = qc3 prop_wildbergerTripleQuadGen
+  let r3 = qc prop_dynamicEpochTriadGen
   let p_static = prop_quadranceTriadCoherence
-  pure (r1.pass == Just True && r2.pass == Just True && p_static)
+  pure (r1.pass == Just True && r2.pass == Just True && r3.pass == Just True && p_static)
 ```
+
