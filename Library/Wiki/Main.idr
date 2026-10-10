@@ -82,6 +82,7 @@ main = do
   printTestResult "Companion Maxel Support & Characteristic Polynomial" auditCompanionSupportProof
   printTestResult "Wildberger Spread Dynamic Support Pruning" auditSpreadSupportPruningProof
   printTestResult "Wildberger Orthogonal Spread 2-Cycle Oscillation Invariance" auditSpreadOrthogonalOscillationProof
+  printTestResult "Wildberger Spread Fast O(log N) Repeated Squaring Equivalence" auditFastSpreadEquivalenceProof
 
   let allQc = p0 && p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8 && p9
   let allAudits = auditMultisetTreeLookupProof && auditMultisetTreeTokenSumProof &&
@@ -90,7 +91,7 @@ main = do
                   auditHehnerScaleConversionProof && auditMultisetHehnerTriadProof &&
                   auditMultisetCompactnessRatioProof && auditLawAlgebraMonoidProof &&
                   auditCompanionSupportProof && auditSpreadSupportPruningProof &&
-                  auditSpreadOrthogonalOscillationProof
+                  auditSpreadOrthogonalOscillationProof && auditFastSpreadEquivalenceProof
 
 
   putStrLn "========================================================"
