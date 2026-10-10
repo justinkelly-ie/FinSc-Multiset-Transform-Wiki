@@ -44,7 +44,7 @@ prop_adjunctionIdentity val =
     c == val
 
 ||| Property 2: Dual Wave Comonad Extract-Duplicate Duality
-public export covering
+public export
 prop_comonadLaws : Int -> Bool
 prop_comonadLaws val =
   let
@@ -152,7 +152,7 @@ prop_stageGeometryMetricRouterProof =
      (countFactors pushedStream == 15)
 
 ||| Direct Suite Execution for Stream Adjunction Specification
-public export covering
+public export
 auditStreamAdjunctionProof : IO Bool
 auditStreamAdjunctionProof = do
   let p1 = prop_adjunctionIdentity 42

@@ -62,7 +62,7 @@ prop_primorial210AdjunctionChainStatic =
   in chain210.baseChain.primeAdjointCount == 4 && chain210.baseChain.primeTotientCapacity == 13
 
 ||| Main Verification Suite for Goh Prime Adjunction & Quad-Stream Duality
-public export covering
+public export
 auditQuadStreamGohAdjunctionProof : IO Bool
 auditQuadStreamGohAdjunctionProof = do
   let r1 = qc prop_quadStreamAdjunctionDualityGen

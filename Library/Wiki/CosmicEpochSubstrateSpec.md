@@ -79,7 +79,7 @@ prop_quadranceTriadCoherence =
      (triad.substrateMetricSum == intToBoxInt 55)
 
 ||| Main Verification Suite for Multi-Epoch Substrate Law Re-hydration & Chromogeometry
-public export covering
+public export
 auditCosmicEpochSubstrateProof : IO Bool
 auditCosmicEpochSubstrateProof = do
   let r1 = qc prop_multiEpochCollapseRehydrationGen

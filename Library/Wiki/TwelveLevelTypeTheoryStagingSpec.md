@@ -155,7 +155,7 @@ prop_sternBrocotPathResolution =
   in (depth == countFactors ledger)
 
 ||| Property 4 Audit: 2LTT Explicit OnSeq Multiset Staging Splicing to Box Monoid
-public export covering
+public export
 prop_onSeqStagingToMonoid : Bool
 prop_onSeqStagingToMonoid =
   let gen = quoteOnSeqMultiset Z (\n => AddM (natToInteger (n + 1)) (intToBoxInt 1) ZeroM)
@@ -164,7 +164,7 @@ prop_onSeqStagingToMonoid =
        MkBoxInt v => v == 1
 
 ||| Main Verification Suite for Generic 12LTT Staging & Goh Factorization
-public export covering
+public export
 auditTwelveLevelTypeTheoryStagingProof : IO Bool
 auditTwelveLevelTypeTheoryStagingProof = do
   let p1 = prop_12LTTUniverseStratification

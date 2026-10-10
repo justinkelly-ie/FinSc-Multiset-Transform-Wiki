@@ -33,17 +33,11 @@ record VerifiedMotivicTransformState where
   weightAfter  : Nat
   0 weightPrf  : WeightPreservationWitness weightBefore weightAfter
 
-||| $O(1)$ allocation deforested Motivic transform stream transducer using fusedHylomorphism
-public export covering
+||| $O(1)$ allocation deforested Motivic transform stream transducer using foldStreamNat
+public export
 fusedMotivicTransformStream : Fuel -> List (Nat, Nat) -> Nat
 fusedMotivicTransformStream f items =
-  fusedHylomorphism f
-    (\st => case st of
-              [] => Done
-              (w1, w2) :: rest => Yield (w1 + w2) rest)
-    (\val, acc => val + acc)
-    0
-    items
+  foldStreamNat (length items) (\acc, (w1, w2) => acc + w1 + w2) 0 (stream items)
 ```
 
 ## Stateful Law Monoid & Capacity Conservation

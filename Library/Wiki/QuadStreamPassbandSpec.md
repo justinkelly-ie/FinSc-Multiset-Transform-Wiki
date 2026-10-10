@@ -90,7 +90,7 @@ prop_gohEpochLawCollapseGen factorCountRaw =
   in (baryonBudget ledger + darkBudget ledger + vacuumBudget ledger) <= 210
 
 ||| Property 6 (Static Invariant): Quad-Stream Mass Conservation Under Transformations
-public export covering
+public export
 prop_quadStreamMassConservation : Bool
 prop_quadStreamMassConservation =
   let e = AddM (intToBoxInt 10) (intToBoxInt 2) ZeroM
@@ -98,13 +98,13 @@ prop_quadStreamMassConservation =
       p = AddM (intToBoxInt 30) (intToBoxInt 1) ZeroM
       s = AddM (intToBoxInt 40) (intToBoxInt 1) ZeroM
       qs = MkQuadStream e h p s
-      totalBefore = fusedQuadStreamTotalMass (limit 100) qs
+      totalBefore = fusedQuadStreamTotalMass substrateFuel qs
       qsStepped = stepQuadStream qs (intToBoxInt 1, intToBoxInt 1, intToBoxInt 1, intToBoxInt 1)
-      totalAfter = fusedQuadStreamTotalMass (limit 100) qsStepped
+      totalAfter = fusedQuadStreamTotalMass substrateFuel qsStepped
   in totalBefore == intToBoxInt 5 && totalAfter == intToBoxInt 9
 
 ||| Main Verification Suite for Quad-Stream Multiset & Passband Filter Engine
-public export covering
+public export
 auditQuadStreamPassbandProof : IO Bool
 auditQuadStreamPassbandProof = do
   let r1 = qc3 prop_quadStreamBudgetClosureGen
