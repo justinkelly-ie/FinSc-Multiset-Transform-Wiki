@@ -37,13 +37,13 @@ module Wiki.TwelveLevelTypeTheoryStagingSpec
 import Stage0.BoxInt
 import Stage0.Multiset
 import Stage0.UniverseState
-import Stage1.Smooth13UniverseState
+import Stage1.SmoothUniverseState
 import Stage1.Goh
 import Stage1.UnixelFraction
 import Stage1.VexelMaxel
 import Stage1.MaxelTransform
 import Stage1.Math.Transform.Reflect.Goh
-import Stage1.TypeTheory.Smooth13
+import Stage1.TypeTheory.Smoothness
 import Stage1.TypeTheory.Staging
 import Stage1.TypeTheory.MultisetLevel
 import Stage1.OnSeq.Staging
@@ -106,7 +106,7 @@ prop_12LTTUniverseStratification =
      (unwrapLevel (spliceN lvl12) == 210) &&
      (unwrapLevelMultiset m12 == unwrapLevelMultiset m0)
 
-||| Property 2 Audit: Generic Goh Cyclotomic Factor Tree Reduction, Primorial 210 Unfolding, Prime Adjunction Transducer, 2LTT Smooth13 StratifiedState & Metric Router
+||| Property 2 Audit: Generic Goh Cyclotomic Factor Tree Reduction, Primorial 210 Unfolding, Prime Adjunction Transducer, 2LTT Smooth StratifiedState & Metric Router
 public export
 prop_genericGohFactorizationInvariance : Bool
 prop_genericGohFactorizationInvariance =
@@ -123,9 +123,9 @@ prop_genericGohFactorizationInvariance =
       adj210 = prop_gohPrimeAdjunctionUnitInvariance 210
       chain210 = buildGohPrimeAdjunctionChain 210
       decomp210 = prop_primeAdjunctionTensorDecomposeInvariance 210
-      smooth210 = MkSmooth13Dimension {n=210} Refl
+      smooth210 = MkSmoothDimensionWitness {bound=CosmicSmoothHorizon, n=210} Refl
       smoothState = seedSmoothCosmicVacuum 100 100 10 Refl
-      stratSmooth = mkSmooth13StratifiedUniverseState smoothState
+      stratSmooth = mkSmoothStratifiedUniverseState smoothState
       pushedPrime = applyPrimeAdjunctionPushforward chain210 g210
       pushedStream = primeAdjunctionStreamTransducer chain210 g210
       v0 = initMultisetVexel (intToBoxInt 10)
