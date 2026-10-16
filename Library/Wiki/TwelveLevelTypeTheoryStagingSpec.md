@@ -37,7 +37,7 @@ module Wiki.TwelveLevelTypeTheoryStagingSpec
 import Stage0.BoxInt
 import Stage0.Multiset
 import Stage0.UniverseState
-import Stage1.SmoothUniverseState
+import Stage1.UniverseState
 import Stage1.Goh
 import Stage1.UnixelFraction
 import Stage1.VexelMaxel
@@ -123,9 +123,9 @@ prop_genericGohFactorizationInvariance =
       adj210 = prop_gohPrimeAdjunctionUnitInvariance 210
       chain210 = buildGohPrimeAdjunctionChain 210
       decomp210 = prop_primeAdjunctionTensorDecomposeInvariance 210
-      smooth210 = MkSmoothDimensionWitness {bound=CosmicSmoothHorizon, n=210} Refl
-      smoothState = seedSmoothCosmicVacuum 100 100 10 Refl
-      stratSmooth = mkSmoothStratifiedUniverseState smoothState
+      dim210 = MkDimensionWitness {bound=CosmicSmoothHorizon, n=210} Refl
+      cosmicState = seedCosmicVacuumCertified 100 100 10 Refl
+      stratState = mkStratifiedUniverseState cosmicState
       pushedPrime = applyPrimeAdjunctionPushforward chain210 g210
       pushedStream = primeAdjunctionStreamTransducer chain210 g210
       v0 = initMultisetVexel (intToBoxInt 10)
@@ -137,8 +137,8 @@ prop_genericGohFactorizationInvariance =
      (countFactors g210 == 16) &&
      (unwrapLevelBox splicedGoh == unwrapLevelBox quotedGoh) &&
      tot18 && tot210 && wb18 && wb210 && prim210 && adj18 && adj210 &&
-     decomp210 && (chain210.primeAdjointCount == 4) && (smooth210 == smooth210) &&
-     (stratSmooth == stratSmooth) &&
+     decomp210 && (chain210.primeAdjointCount == 4) && (dim210 == dim210) &&
+     (stratState == stratState) &&
      (countFactors pushedPrime == 15) && (countFactors pushedStream == 15) &&
      (stencilAuto.sector == EllipticSector) && (autoRouted.sector == EllipticSector) &&
      geomRoute && geomDisp
