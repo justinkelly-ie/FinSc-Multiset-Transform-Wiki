@@ -52,7 +52,7 @@ prop_primorial210AdjunctionChainGen nRaw =
                   3 => 30
                   _ => 210
       chain = buildQuadStreamAdjunctionChain n
-  in chain.baseChain.primeAdjointCount == length chain.baseChain.primeFactorsList
+  in chain.baseChain.primeAdjointCount == length chain.baseChain.gohPrimes
 
 ||| Property 3 (Static Invariant): Canonical Primorial 210 Goh Adjunction Chain
 public export
