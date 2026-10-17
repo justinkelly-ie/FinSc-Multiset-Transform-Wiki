@@ -85,6 +85,7 @@ main = do
   printTestResult "Wildberger Orthogonal Spread 2-Cycle Oscillation Invariance" auditSpreadOrthogonalOscillationProof
   printTestResult "Wildberger Spread Fast O(log N) Repeated Squaring Equivalence" auditFastSpreadEquivalenceProof
   printTestResult "Dependent Dyadic Geometry Fixed Point (2 + 2 = 2 * 2 = 4)" auditDyadicGeometryFixedPointProof
+  printTestResult "Goh Maxel 1D & 2D Support Commutation (p=2->1, p=3->3, p=5->7)" Stage1.Reflect.InvariantAuditor.auditGohMaxelSupportCommutationProof
 
   let allQc = p0 && p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8 && p9
   let allAudits = auditMultisetTreeLookupProof && auditMultisetTreeTokenSumProof &&
@@ -94,7 +95,9 @@ main = do
                   auditMultisetCompactnessRatioProof && auditLawAlgebraMonoidProof &&
                   auditCompanionSupportProof && auditSpreadSupportPruningProof &&
                   auditSpreadOrthogonalOscillationProof && auditFastSpreadEquivalenceProof &&
-                  auditDyadicGeometryFixedPointProof
+                  auditDyadicGeometryFixedPointProof && Stage1.Reflect.InvariantAuditor.auditGohMaxelSupportCommutationProof
+
+
 
 
   putStrLn "========================================================"
