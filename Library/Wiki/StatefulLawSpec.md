@@ -10,6 +10,7 @@ import Stage0.UniverseState
 import Stage1.StratifiedState
 import Stage1.Math.LawAlgebra
 import Stage0.OnSeq.FusedStream
+import Stage0.StructuralFuel
 import Data.Fuel
 import Wiki.Generators
 
@@ -33,11 +34,11 @@ record VerifiedMotivicTransformState where
   weightAfter  : Nat
   0 weightPrf  : WeightPreservationWitness weightBefore weightAfter
 
-||| $O(1)$ allocation deforested Motivic transform stream transducer using foldStreamNat
+||| $O(1)$ allocation deforested Motivic transform stream transducer using foldStreamNat and model-indexed GohFuel
 public export
-fusedMotivicTransformStream : Fuel -> List (Nat, Nat) -> Nat
-fusedMotivicTransformStream f items =
-  foldStreamNat (length items) (\acc, (w1, w2) => acc + w1 + w2) 0 (stream items)
+fusedMotivicTransformStream : GohFuel cap -> List (Nat, Nat) -> Nat
+fusedMotivicTransformStream fuel items =
+  foldStreamNat (gohSteps fuel) (\acc, (w1, w2) => acc + w1 + w2) 0 (stream items)
 ```
 
 ## Stateful Law Monoid & Capacity Conservation
@@ -114,6 +115,6 @@ auditStatefulLawProof = do
   let r2 = qc3 prop_cosmicMultisetBudgetInvariant
   let r3 = qc3 prop_lawMonoidAssociative
   let r4 = qc2 prop_lawSubsumptionReflexive
-  let streamSum = fusedMotivicTransformStream (limit 100) [(105, 105), (10, 10)]
+  let streamSum = fusedMotivicTransformStream masterSubstrateGohFuelModel [(105, 105), (10, 10)]
   pure (r1.pass == Just True && r2.pass == Just True && r3.pass == Just True && r4.pass == Just True && streamSum == 230)
 ```

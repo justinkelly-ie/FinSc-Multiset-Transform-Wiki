@@ -58,7 +58,7 @@ prop_multiEpochCollapseRehydrationGen : Nat -> Bool
 prop_multiEpochCollapseRehydrationGen factorCountRaw =
   let ledger = canonicalSubstrateLawLedger
       rehydratedStream = rehydrateSubstrateLawLedger ledger
-      totalMass = fusedQuadStreamTotalMass (limit 100) rehydratedStream
+      totalMass = fusedQuadStreamTotalMass substrateFuel rehydratedStream
   in unwrapBox totalMass == 211  -- 27 + 128 + 1 + 55 = 211
 
 ||| Property 2 (Generative QuickCheck): Wildberger Triple Quad Residual Invariant
