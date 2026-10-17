@@ -17,6 +17,7 @@ import Wiki.TwelveLevelTypeTheoryStagingSpec
 import Wiki.QuadStreamPassbandSpec
 import Wiki.CosmicEpochSubstrateSpec
 import Wiki.QuadStreamGohAdjunctionSpec
+import Stage1.Reflect.InvariantAuditor
 
 %default total
 
@@ -83,6 +84,7 @@ main = do
   printTestResult "Wildberger Spread Dynamic Support Pruning" auditSpreadSupportPruningProof
   printTestResult "Wildberger Orthogonal Spread 2-Cycle Oscillation Invariance" auditSpreadOrthogonalOscillationProof
   printTestResult "Wildberger Spread Fast O(log N) Repeated Squaring Equivalence" auditFastSpreadEquivalenceProof
+  printTestResult "Dependent Dyadic Geometry Fixed Point (2 + 2 = 2 * 2 = 4)" auditDyadicGeometryFixedPointProof
 
   let allQc = p0 && p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8 && p9
   let allAudits = auditMultisetTreeLookupProof && auditMultisetTreeTokenSumProof &&
@@ -91,7 +93,8 @@ main = do
                   auditHehnerScaleConversionProof && auditMultisetHehnerTriadProof &&
                   auditMultisetCompactnessRatioProof && auditLawAlgebraMonoidProof &&
                   auditCompanionSupportProof && auditSpreadSupportPruningProof &&
-                  auditSpreadOrthogonalOscillationProof && auditFastSpreadEquivalenceProof
+                  auditSpreadOrthogonalOscillationProof && auditFastSpreadEquivalenceProof &&
+                  auditDyadicGeometryFixedPointProof
 
 
   putStrLn "========================================================"
