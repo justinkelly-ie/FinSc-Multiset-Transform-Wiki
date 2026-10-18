@@ -41,18 +41,18 @@ public export
 Arbitrary Vexel where
   arbitrary = do
     ts <- arbitrary {a = List (Unixel, BoxInt)}
-    pure (canonicalizeVexel (MkVexel (take 5 ts)))
-  coarbitrary (MkVexel terms) gen =
-    let t = map (\(MkUnixel i, w) => (i, unwrapBox w)) terms
+    pure (mkVexel (take 5 ts))
+  coarbitrary v gen =
+    let t = map (\(MkUnixel i, w) => (i, unwrapBox w)) (vexelTerms v)
     in coarbitrary t gen
 
 public export
 Arbitrary Maxel where
   arbitrary = do
     ps <- arbitrary {a = List (Pixel, BoxInt)}
-    pure (canonicalizeMaxel (MkMaxel (take 5 ps)))
-  coarbitrary (MkMaxel pxs) gen =
-    let t = map (\(MkPixel r c, w) => (r, c, unwrapBox w)) pxs
+    pure (mkMaxel (take 5 ps))
+  coarbitrary m gen =
+    let t = map (\(MkPixel r c, w) => (r, c, unwrapBox w)) (maxelPixels m)
     in coarbitrary t gen
 
 public export
