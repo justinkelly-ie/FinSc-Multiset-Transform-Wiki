@@ -27,5 +27,5 @@
 | [`Core.MultisetTree`](../../FinSc-Multiset2/src/Core/MultisetTree.idr) | $O(\log N)$ balanced multiset trees and `TreeUniverseState`. |
 | [`Core.Polynumber`](../../FinSc-Multiset2/src/Core/Polynumber.idr) | Polynumber Cauchy product, cyclotomic division, and Caret operation ($\wedge$). |
 | [`Core.UnixelFraction`](../../FinSc-Multiset2/src/Core/UnixelFraction.idr) | Rational `UnixelFraction`, Stern-Brocot pathfinding, and Hehner scale conversions. |
-| [`Core.VexelMaxel`](../../FinSc-Multiset2/src/Core/VexelMaxel.idr) | Multiset tensor hierarchy (`Unixel`, `Pixel`, `Voxel`, `Vexel`, `Maxel`, `Boxel`, `HyperBoxel`). |
+| [`Stage1.Carrier.*`](../../FinSc-Metric-Substrate/src/Stage1/Carrier/) | Multiset tensor hierarchy (`Unixel`, `Pixel`, `Voxel`, `Vexel`, `Maxel`, `Boxel`, `HyperBoxel`). |
 | [`Math.LawAlgebra`](../../FinSc-Multiset2/src/Math/LawAlgebra.idr) | Monoid $(\wedge, \otimes)$, multiset pushforward ($f_*$), pullback ($f^*$), and Multiset Adjunctions. |

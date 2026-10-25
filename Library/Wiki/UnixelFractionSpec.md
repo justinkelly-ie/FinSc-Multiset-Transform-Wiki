@@ -16,7 +16,7 @@ module Wiki.UnixelFractionSpec
 
 import Stage0.BoxInt
 import Stage0.Multiset
-import Stage1.VexelMaxel
+import Stage1.Basis.Coordinate
 import Stage1.UnixelFraction
 import Wiki.Generators
 

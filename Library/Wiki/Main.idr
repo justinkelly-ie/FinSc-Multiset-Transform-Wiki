@@ -3,7 +3,6 @@ module Wiki.Main
 import Stage1.MultisetTree
 import Stage1.Polynumber
 import Stage1.UnixelFraction
-import Stage1.VexelMaxel
 import Stage1.Math.LawAlgebra
 import Stage1.MaxelPolyBridge
 import System

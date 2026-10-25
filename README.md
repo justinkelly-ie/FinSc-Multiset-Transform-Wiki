@@ -1,11 +1,11 @@
-# FinSc-Multiset-Transform-Wiki
+# FinSc-Phase-Unfolding-Wiki
 
 [![Idris 2 Verification](https://img.shields.io/badge/Idris_2-0.8.0-blue.svg)](https://www.idris-lang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Literate Verification Suite & Specification Manual for Layer 2 (`FinSc-Multiset-Transform`)**
+**Literate Verification Suite & Specification Manual for Phase-Unfolding (`FinSc-Phase-Unfolding`)**
 
-`FinSc-Multiset-Transform-Wiki` provides formal compile-time macro reflection proofs, QuickCheck property test suites, and literate Markdown specifications for **Layer 2** of the non-linear discrete multiset physical law ecosystem.
+`FinSc-Phase-Unfolding-Wiki` provides formal compile-time macro reflection proofs, QuickCheck property test suites, and literate Markdown specifications for the **Phase-Unfolding** library, which re‑exports core geometric and topological primitives from `Stage1`.
 
 ---
 
@@ -37,7 +37,7 @@
 To compile the literate verification suite and execute the test runner binary:
 
 ```bash
-idris2 --build FinSc-Multiset-Transform-Wiki.ipkg
+idris2 --build FinSc-Phase-Unfolding.ipkg
 ./build/exec/multiset1-verify
 ```
 

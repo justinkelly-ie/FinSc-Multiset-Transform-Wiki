@@ -40,7 +40,7 @@ import Stage0.UniverseState
 import Stage1.UniverseState
 import Stage1.Goh
 import Stage1.UnixelFraction
-import Stage1.VexelMaxel
+import Stage1.Carrier.Vexel
 import Stage1.MaxelTransform
 import Stage1.Math.Transform.Reflect.Goh
 import Stage1.TypeTheory.Smoothness
