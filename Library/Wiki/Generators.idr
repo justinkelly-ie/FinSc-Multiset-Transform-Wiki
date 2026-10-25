@@ -28,16 +28,16 @@ Arbitrary BoxInt where
 
 public export
 Arbitrary Unixel where
-  arbitrary = map (\n => MkUnixel (clampNat n 20)) arbitrary
-  coarbitrary (MkUnixel i) gen = coarbitrary i gen
+  arbitrary = map (\n => mkUnixel (clampNat n 20)) arbitrary
+  coarbitrary u gen = coarbitrary (unwrapUnixel u) gen
 
 public export
 Arbitrary Pixel where
   arbitrary = do
     r <- map (\n => clampNat n 10) arbitrary
     c <- map (\n => clampNat n 10) arbitrary
-    pure (MkPixel r c)
-  coarbitrary (MkPixel r c) gen = coarbitrary r (coarbitrary c gen)
+    pure (mkPixel r c)
+  coarbitrary px gen = coarbitrary (pixelRow px) (coarbitrary (pixelCol px) gen)
 
 public export
 Arbitrary Vexel where
@@ -45,7 +45,7 @@ Arbitrary Vexel where
     ts <- arbitrary {a = List (Unixel, BoxInt)}
     pure (mkVexel (take 5 ts))
   coarbitrary v gen =
-    let t = map (\(MkUnixel i, w) => (i, unwrapBox w)) (vexelTerms v)
+    let t = map (\(u, w) => (unwrapUnixel u, unwrapBox w)) (vexelTerms v)
     in coarbitrary t gen
 
 public export
@@ -54,7 +54,7 @@ Arbitrary Maxel where
     ps <- arbitrary {a = List (Pixel, BoxInt)}
     pure (mkMaxel (take 5 ps))
   coarbitrary m gen =
-    let t = map (\(MkPixel r c, w) => (r, c, unwrapBox w)) (maxelPixels m)
+    let t = map (\(px, w) => (pixelRow px, pixelCol px, unwrapBox w)) (maxelPixels m)
     in coarbitrary t gen
 
 public export
@@ -77,8 +77,8 @@ Arbitrary UnixelFraction where
     n <- arbitrary {a = BoxInt}
     dRaw <- arbitrary {a = Nat}
     pure (mkUnixelFraction n (clampNat dRaw 50))
-  coarbitrary (MkUnixelFraction n (MkUnixel d)) gen =
-    coarbitrary (unwrapBox n) (coarbitrary d gen)
+  coarbitrary qFrac gen =
+    coarbitrary (unwrapBox qFrac.num) (coarbitrary (denominatorNat qFrac) gen)
 
 public export
 Arbitrary (MaxelTransform Unixel Unixel) where

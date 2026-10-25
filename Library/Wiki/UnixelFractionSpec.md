@@ -50,7 +50,8 @@ prop_continuedFractionRoundtrip q =
 public export
 prop_sternBrocotPathRoundtrip : UnixelFraction -> Bool
 prop_sternBrocotPathRoundtrip q =
-  let (MkUnixelFraction n (MkUnixel d)) = q
+  let n = q.num
+      d = denominatorNat q
       nSmall = clampNat (boxToNat n) 10
       dSmall = clampNat d 10
       qSmall = mkUnixelFraction (intToBoxInt (cast nSmall)) dSmall
